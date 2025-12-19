@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape This World - RYSF13</title>
+    <!-- Importing Space Mono for headings and Consolas-like vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Consolas:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Audio (Hidden) -->
+    <audio id="bg-music" src="./lost.mp3" preload="auto"></audio>
+
+    <!-- Visualizer Background -->
+    <canvas class="oscilloscope" id="oscilloscope"></canvas>
+
+    <!-- CRT Overlay Effects (Scanlines & Vignette) -->
+    <div class="crt-overlay"></div>
+
+    <!-- Main Layout Container -->
+    <main class="terminal-layout">
+        
+        <!-- Phase 1: Initiation Window -->
+        <div id="window-init" class="window-container">
+            <div class="window-header">
+                <span class="window-title">SYSTEM.EXE</span>
+                <div class="window-controls">
+                    <span class="control-box">_</span>
+                    <span class="control-box">X</span>
+                </div>
+            </div>
+            <div class="window-body center-content">
+                <h1 class="glitch-text">PRESS <button id="f-trigger" class="key-cap">F</button> TO ESCAPE THIS WORLD</h1>
+            </div>
+        </div>
+
+        <!-- Phase 2: Uninstall Terminal -->
+        <div id="window-terminal" class="window-container hidden">
+            <div class="window-header">
+                <span class="window-title">ROOT@EARTH_ONLINE:~</span>
+            </div>
+            <div class="window-body terminal-body">
+                <div id="terminal-output" class="console-output">
+                    <!-- Logs will be injected here via JS -->
+                </div>
+                <div class="progress-section">
+                    <div class="progress-label">
+                        <span>STATUS: PURGING</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="progress-bar" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 3: Farewell -->
+        <div id="window-final" class="window-container hidden">
+            <div class="window-header">
+                <span class="window-title">DISCONNECTED</span>
+            </div>
+            <div class="window-body center-content vertical-stack">
+                <h1 class="final-title">GOODBYE WORLD</h1>
+                <div class="author-credit">A work by Robert Ryan.</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
